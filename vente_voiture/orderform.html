@@ -78,14 +78,44 @@
                      <div class="form-group">
                         <label for="tax">Tax: (To be gotten from the back-end)</label>
                      </div>
-                     <button type="submit" class="btn btn-black btn-block">Submit Order</button>
+                     <button type="button" class="btn btn-black btn-block" onclick="showPaymentModal()">Submit Order</button>
                   </form>
                </div>
             </div>
          </div>
       </div>
       <!-- order form section end -->
-      
+
+      <!-- Payment modal -->
+      <div class="modal" id="paymentModal">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <!-- Modal Header -->
+               <div class="modal-header">
+                  <h4 class="modal-title">Choose Payment Type</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+               </div>
+               <!-- Modal body -->
+               <div class="modal-body">
+                  <form>
+                     <div class="form-group">
+                        <label for="paymentType">Payment Type:</label>
+                        <select class="form-control" id="paymentType">
+                           <option value="cash">Cash</option>
+                           <option value="credit">Credit Card</option>
+                        </select>
+                     </div>
+                  </form>
+               </div>
+               <!-- Modal footer -->
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" onclick="redirectToPaymentPage()">Proceed</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Payment modal end -->
+
       <!-- footer section start -->
       <div class="footer_section layout_padding">
          <div class="container">
@@ -143,5 +173,20 @@
       <!-- sidebar -->
       <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
       <script src="js/custom.js"></script>
+
+      <script>
+         function showPaymentModal() {
+            $('#paymentModal').modal('show');
+         }
+
+         function redirectToPaymentPage() {
+            var paymentType = $('#paymentType').val();
+            if (paymentType === 'cash') {
+               window.location.href = 'cash_payment.html';
+            } else if (paymentType === 'credit') {
+               window.location.href = 'credit_card_payment.html';
+            }
+         }
+      </script>
    </body>
 </html>
