@@ -51,6 +51,67 @@
             background-color: #333333; /* Darker black on hover */
             border-color: #333333;
          }
+
+         /* Table Styling */
+         .car-table {
+            width: 100%;
+            border-collapse: collapse;
+         }
+
+         .car-table th, .car-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+         }
+
+         .car-table th {
+            background-color: #f2f2f2;
+         }
+
+         .car-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+         }
+
+         .pending {
+            color: orange;
+         }
+
+         .completed {
+            color: green;
+         }
+
+         .failed {
+            color: red;
+         }
+
+         /* Button Styling */
+         .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+         }
+
+         .button-container button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+         }
+
+         .button-container button:hover {
+            opacity: 0.8;
+         }
+
+         .add-order-btn {
+            background-color: #000000;
+            color: #ffffff;
+         }
+
+         .view-catalog-btn {
+            background-color: #0066ff;
+            color: #ffffff;
+            margin-left: 362px;
+         }
       </style>
    </head>
    <body>
@@ -99,27 +160,68 @@
          </div>
       </div>
       
-      <!-- order form section start -->
+      <!-- order table section start -->
       <div class="order_form_section layout_padding">
          <div class="container">
             <div class="row justify-content-center">
-               <div class="col-md-6">
-                  <h4 class="order_text">Place Your Order</h4>
-                  <form id="orderForm">
-                     <div class="form-group">
-                        <label for="deliveryLocation">Delivery Location:</label>
-                        <input type="text" class="form-control" id="deliveryLocation" placeholder="Enter delivery location" required>
-                     </div>
-                     <div class="form-group">
-                        <label for="tax">Tax:</label>
-                     </div>
-                     <button type="submit" class="btn btn-black btn-block">Submit Order</button>
-                  </form>
+               <div class="col-md-12">
+                  <h4 class="order_text">Your Orders</h4>
+                  <table class="car-table">
+                     <thead>
+                        <tr>
+                           <th>S/N</th>
+                           <th>Image</th>
+                           <th>Car Name</th>
+                           <th>Price</th>
+                           <th>Status</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>1</td>
+                           <td><img src="images/img-3.png" alt="Car Image" width="100"></td>
+                           <td>Toyota Camry</td>
+                           <td>$25,000</td>
+                           <td class="pending">Pending</td>
+                        </tr>
+                        <tr>
+                           <td>2</td>
+                           <td><img src="images/img-1.png" alt="Car Image" width="100"></td>
+                           <td>Honda Civic</td>
+                           <td>$20,000</td>
+                           <td class="completed">Completed</td>
+                        </tr>
+                        <tr>
+                           <td>3</td>
+                           <td><img src="images/img-2.png" alt="Car Image" width="100"></td>
+                           <td>Ford F-150</td>
+                           <td>$35,000</td>
+                           <td class="failed">Failed</td>
+                        </tr>
+                        <tr>
+                           <td>4</td>
+                           <td><img src="images/about-img.png" alt="Car Image" width="100"></td>
+                           <td>Avensis F-300</td>
+                           <td>$35,000</td>
+                           <td class="completed">Completed</td>
+                        </tr>
+                     </tbody>
+                  </table>
                </div>
+            </div>
+            <!-- Button Container -->
+            <div class="row button-container">
+               <div class="col-md-6">
+                  <button class="add-order-btn">Add New Order</button>
+               </div>
+               <div class="col-md-6">
+                  <button class="view-catalog-btn" onclick="window.location.href = 'Cart.html';">View Cart (Payments)</button>
+              </div>
+              
             </div>
          </div>
       </div>
-      <!-- order form section end -->
+      <!-- order table section end -->
       
       <!-- footer section start -->
       <div class="footer_section layout_padding">
